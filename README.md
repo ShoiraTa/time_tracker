@@ -30,12 +30,6 @@
 - OOP
 - webpack
 - bootstrap
-- fontawesome
-- cocoon
-- install videoJS
-- chartkick
-- jquery-ui
-- trix
 
 ### Ruby on Rails features:
 
