@@ -16,7 +16,6 @@ gem "bootsnap", require: false
 
 # added gems
 gem "bootsnap", require: false
-gem "haml-rails", "~> 2.0"
 gem 'faker'
 gem "devise", github: "heartcombo/devise", branch: "main"
 gem 'friendly_id', '~> 5.4.0'
