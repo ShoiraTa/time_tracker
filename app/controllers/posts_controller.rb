@@ -11,9 +11,13 @@ class PostsController < ApplicationController
   end
 
   def create
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
-      redirect_to @post
-    end
+			redirect_to @post, notice: 'Your post was created successfully'
+		else
+			render :new
+		end
   end
 
   private
@@ -22,6 +26,6 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.new(post_params)
+    @post = Post.find(params[:id])
   end
 end
