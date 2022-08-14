@@ -7,5 +7,5 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 100.times do  |post|
-  Post.create(date: Date.today, rationale: "#{post} rationale content")
+  Post.create(date: Date.today, rationale: "#{post} rationale content", user: User.first)
 end
