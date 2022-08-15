@@ -30,6 +30,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'byebug'
   gem 'database_cleaner'
+  gem "factory_bot_rails", "~> 6.1.0"
 end
 
 group :development do

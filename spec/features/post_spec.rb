@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'navigate' do
   before do
-    user = User.create(email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", first_name: "Jon", last_name: "Snow")
+    user = create(:user)
     login_as(user, :scope => :user)
     visit new_post_path
   end
@@ -20,7 +20,7 @@ describe 'navigate' do
 
   describe 'posts index page' do
     it 'shows created posts' do
-      Post.create(date: Date.today, rationale: "post 1", user: User.first)
+      create(:post)
       visit posts_path
       expect(page).to have_content(/post 1/)
     end
