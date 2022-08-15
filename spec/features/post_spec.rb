@@ -18,6 +18,22 @@ describe 'navigate' do
   	end
   end
 
+  describe 'new button on nav' do
+    before do 
+      @post = create(:post)
+    end
+    it 'opens new entry page' do
+      visit root_path
+      click_link('add_new_entry')
+      expect(page.status_code).to eq 200
+    end
+    it 'can delete a post' do
+      visit posts_path
+      click_button("delete_post_#{@post.id}")
+      expect(page.status_code).to eq 200
+    end
+  end
+
   describe 'posts index page' do
     it 'shows created posts' do
       create(:post)

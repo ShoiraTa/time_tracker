@@ -13,5 +13,6 @@
   </td>
   <td  >
     <%= link_to 'Edit', edit_post_path(post), id: "edit_#{post.id}" %>
+    <%= button_to 'Delete', post_path(post), method: :delete, id: "delete_post_#{post.id}", data: {confirm: 'Are you sure?'} %>
   </td>
 </tr>
