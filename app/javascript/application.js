@@ -10,4 +10,5 @@ import 'jquery_ujs';
 //= require rails-ujs
 //= require_tree .
 //= require_self
+//= require gritter
 Turbo.session.drive = false;

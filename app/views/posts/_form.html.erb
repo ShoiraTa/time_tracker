@@ -1,6 +1,22 @@
+ <% if @post.errors.any? %>
+  <h3> <%= @post.errors.count %> prohibited post from being saved </h3>
+  <ul>
+    <% @post.errors.full_messages.each do |error| %>
+      <li>
+        <%= error%> 
+      </li>
+    <% end %>
+  </ul>
+ <% end %>
+ 
  <%= form_for @post do |f| %>
-  <%=f.date_field :date %>
-  <%=f.text_area :rationale %>
-  <%=f.submit 'Save' %>
-  
+  <div class="form-group mt-2">
+    <%=f.label :date  %>
+    <%=f.date_field :date, class: 'form-control' %>
+  </div>
+  <div class="form-group mt-2">
+    <%=f.label :rationale  %>
+    <%=f.text_area :rationale, class: 'form-control' %>
+  </div>
+  <%=f.submit 'Save', class: "btn btn-primary mt-2" %>
 <% end %>

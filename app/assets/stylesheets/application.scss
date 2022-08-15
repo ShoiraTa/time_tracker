@@ -12,8 +12,10 @@
  *
  *= require_tree .
  *= require_self
+*= require gritter
  */
 //  @import "bootstrap";
+ @import 'gritter';
  @import 'post.scss'
 
 

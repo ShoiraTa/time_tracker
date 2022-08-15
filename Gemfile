@@ -23,6 +23,7 @@ gem 'pagy', '~> 5.10'
 gem "jquery-rails"
 gem 'bootstrap', '~> 5.1.3'
 gem "sassc-rails" 
+gem 'gritter', '~> 1.2'
 
 
 group :development, :test do
