@@ -11,6 +11,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     id: Field::Number,
     email: Field::String,
     encrypted_password: Field::String,
+    password: Field::String,
     first_name: Field::String,
     last_name: Field::String,
     posts: Field::HasMany,
@@ -56,13 +57,9 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     email
-    encrypted_password
+    password
     first_name
     last_name
-    posts
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
     type
   ].freeze
 
