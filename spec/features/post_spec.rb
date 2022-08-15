@@ -29,7 +29,6 @@ describe 'navigate' do
   	it 'has a new form that can be reached' do
   		expect(page.status_code).to eq(200)
   	end
-
   	it 'can be created from new form page' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: "Some rationale"
@@ -42,6 +41,22 @@ describe 'navigate' do
       fill_in 'post[rationale]', with: "User Association"
       click_on "Save"
       expect(User.last.posts.last.rationale).to eq("User Association")
+    end
+  end
+  describe 'post edit' do
+    before do 
+      @post = create(:post)
+    end
+    it 'opens edit page' do
+      visit posts_path
+      click_link("edit_#{@post.id}")
+      expect(page.status_code).to eq 200
+    end
+    it 'updates the post' do
+      visit edit_post_path(@post)
+      fill_in 'post[rationale]', with: 'edited'
+      click_on 'Save'
+      expect(page).to have_content('edited')
     end
   end
 end
