@@ -11,7 +11,7 @@ FactoryBot.define do
 
     trait :with_post do
       after(:create) do |user|
-        create(:post, user: user)
+        create(:non_admin_post, user: user)
       end
     end
   end

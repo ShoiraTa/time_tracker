@@ -8,38 +8,34 @@ describe 'navigate' do
     login_as(user, :scope => :user)
     visit new_post_path
   end
-  describe 'index' do
+
+  describe 'index page' do
     before do
       visit posts_path
     end
   	it 'can be reached successfully' do
   		expect(page.status_code).to eq(200)
   	end
-  	it 'has a title of Posts' do
-  		expect(page).to have_content(/Posts/)
-  	end
-  end
-
-  describe 'new button on nav' do
+    it 'can delete a post' do
+      click_button("delete_post_#{post.id}")
+      expect(page.status_code).to eq 200
+    end
     it 'opens new entry page' do
       visit root_path
       click_link('add_new_entry')
       expect(page.status_code).to eq 200
     end
-    it 'can delete a post' do
+  end
+
+  describe 'Post view restrictions' do
+    let(:admin_user){create(:admin_user, :with_post)}
+    let(:post){admin_user.posts.first}
+    it 'regular users can see only their own posts' do
       visit posts_path
-      click_button("delete_post_#{post.id}")
-      expect(page.status_code).to eq 200
+      expect(page).not_to have_content(post.rationale)
     end
   end
 
-  describe 'posts index page' do
-    it 'shows created posts' do
-      create(:post)
-      visit posts_path
-      expect(page).to have_content(/post 1/)
-    end
-  end
   describe 'creation' do
   	it 'has a new form that can be reached' do
   		expect(page.status_code).to eq(200)
@@ -56,6 +52,12 @@ describe 'navigate' do
       fill_in 'post[rationale]', with: "User Association"
       click_on "Save"
       expect(User.last.posts.last.rationale).to eq("User Association")
+    end
+
+    it 'shows created posts' do
+      create(:non_admin_post)
+      visit posts_path
+      expect(page).to have_content(/post user/)
     end
   end
   describe 'post edit' do
