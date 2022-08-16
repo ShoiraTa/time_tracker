@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 describe 'navigate' do
+  let(:user){create(:user, :with_post)}
+  let(:post){user.posts.first}
+
   before do
-    user = create(:user)
     login_as(user, :scope => :user)
     visit new_post_path
   end
@@ -19,9 +21,6 @@ describe 'navigate' do
   end
 
   describe 'new button on nav' do
-    before do 
-      @post = create(:post)
-    end
     it 'opens new entry page' do
       visit root_path
       click_link('add_new_entry')
@@ -29,7 +28,7 @@ describe 'navigate' do
     end
     it 'can delete a post' do
       visit posts_path
-      click_button("delete_post_#{@post.id}")
+      click_button("delete_post_#{post.id}")
       expect(page.status_code).to eq 200
     end
   end
@@ -60,16 +59,13 @@ describe 'navigate' do
     end
   end
   describe 'post edit' do
-    before do 
-      @post = create(:post)
-    end
     it 'opens edit page' do
       visit posts_path
-      click_link("edit_#{@post.id}")
+      click_link("edit_#{post.id}")
       expect(page.status_code).to eq 200
     end
     it 'updates the post' do
-      visit edit_post_path(@post)
+      visit edit_post_path(post)
       fill_in 'post[rationale]', with: 'edited'
       click_on 'Save'
       expect(page).to have_content('edited')

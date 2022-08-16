@@ -13,8 +13,7 @@ class PostsController < ApplicationController
 
   def update
     authorize @post
-    if  @post.update(post_params)
-
+    if @post.update(post_params)
 			redirect_to @post
 		else
 			render :edit
