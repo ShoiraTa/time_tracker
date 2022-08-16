@@ -26,6 +26,7 @@ gem "sassc-rails"
 gem 'gritter', '~> 1.2'
 gem 'administrate'
 gem 'bourbon'
+gem "pundit", "~> 2.2"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -44,3 +45,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
