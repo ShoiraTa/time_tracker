@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    association :user
+    user
     date {Date.today}
     rationale {"post 1"}
   end
