@@ -31,7 +31,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     email
-    encrypted_password
+    password
     first_name
   ].freeze
 
@@ -40,7 +40,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     email
-    encrypted_password
+    password
     first_name
     last_name
     posts

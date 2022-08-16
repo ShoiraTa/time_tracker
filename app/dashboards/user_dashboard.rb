@@ -33,7 +33,7 @@ class UserDashboard < Administrate::BaseDashboard
     email
     posts
     type
-    encrypted_password
+    password
     first_name
   ].freeze
 
@@ -42,7 +42,7 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     email
-    encrypted_password
+    password
     first_name
     last_name
     posts
@@ -75,7 +75,9 @@ class UserDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
+     COLLECTION_FILTERS = {
+       open: ->(resources) { resources.where(open: true) }
+     }.freeze
 
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
