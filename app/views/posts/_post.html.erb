@@ -19,9 +19,13 @@
   </td>
   <td  >
     <% if policy(post).update? %>
-      <%= link_to 'Edit', edit_post_path(post), id: "edit_#{post.id}" %>
+      <%= link_to edit_post_path(post), id: "edit_#{post.id}" do %>
+        <i class="fa-solid fa-pen"></i>
+      <% end %>
 
-      <%= button_to 'Delete', post_path(post), method: :delete, id: "delete_post_#{post.id}", data: {confirm: 'Are you sure?'} %>
+      <%= button_to  post_path(post), method: :delete, id: "delete_post_#{post.id}", data: {confirm: 'Are you sure?'}  do %>
+        <i class="fa-solid fa-trash text-primary"></i>
+      <% end %>
     <% end %>
   </td>
 </tr>

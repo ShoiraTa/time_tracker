@@ -17,6 +17,18 @@
 //  @import "bootstrap";
  @import 'gritter';
  @import 'post.scss';
- @import 'bourbon'
+ @import 'bourbon';
 
+ button {
+  background: transparent;
+  border: none;
+ }
 
+ .button_to{
+  margin-left: 10px;
+  display: inline;
+ }
+
+a {
+  text-decoration: none;
+}
