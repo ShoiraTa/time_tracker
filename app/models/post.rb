@@ -3,5 +3,5 @@ class Post < ApplicationRecord
   validates_presence_of :date, :rationale
   belongs_to :user
 
-  # scope :posts, -> {where('user_id = ?', cuurent_user.id)}
+  scope :posts_by, ->(user) {where('user_id = ?', user.id)}
 end

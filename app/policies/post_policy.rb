@@ -1,8 +1,18 @@
 class PostPolicy < ApplicationPolicy
   def edit?
+    return true if approved? && admin?
+    return true if author_or_admin?  && !approved?
+  end
+
+  private
+  def admin?
+    @user.type == 'AdminUser'
+  end
+  def author_or_admin? 
     @record.user.id == user.id || @user.type == 'AdminUser'
   end
-  def update?
-    @record.user.id == user.id || @user.type == 'AdminUser'
+  def approved?
+    record.approved?
   end
+
 end
