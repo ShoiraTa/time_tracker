@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
     end
     describe 'post creation' do
       it 'can be created' do
-        post = Post.create(rationale: 'hello', date: Date.today, user: User.first)
+        post = Post.create(rationale: 'hello', date: Date.today, user: User.first, overtime_hours: 1)
         expect(post).to be_valid
       end
       it 'cannot be created without date and rationale' do

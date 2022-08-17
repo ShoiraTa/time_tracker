@@ -15,6 +15,10 @@
     <%=f.date_field :date, class: 'form-control' %>
   </div>
   <div class="form-group mt-2">
+    <%=f.label :overtime_hours  %>
+    <%=f.number_field :overtime_hours, step: 0.5, class: 'form-control' %>
+  </div>
+  <div class="form-group mt-2">
     <%=f.label :rationale  %>
     <%=f.text_area :rationale, class: 'form-control' %>
   </div>

@@ -10,5 +10,5 @@ user = User.create(email: "user@gmail.com", password: '123456', password_confirm
   , last_name:'last')
   
 100.times do  |post|
-  Post.create(date: Date.today, rationale: "#{post} rationale content", user: User.first)
+  Post.create(date: Date.today, rationale: "#{post} rationale content", user: User.first, overtime_hours: 1)
 end
