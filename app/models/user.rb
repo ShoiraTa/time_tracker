@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :last_name, :phone_number
 
   has_many :posts
+  has_many :auditlogs
 
   def full_name
     first_name.upcase + ', ' + last_name.upcase

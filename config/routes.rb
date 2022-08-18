@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :auditlogs
   namespace :admin do
       resources :posts
       resources :users
