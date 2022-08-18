@@ -1,0 +1,19 @@
+require 'rails_helper'
+
+RSpec.describe 'Auditlog features' do 
+  let(:admin_user){create(:admin_user)}
+  let(:auditlog){create(:auditlog)}
+  before do 
+    login_as(admin_user, :scope => :user)
+  end
+  describe 'index' do
+    it 'has an index page that can be reached' do
+      visit auditlogs_path
+      expect(page.status_code).to eq(200)
+    end
+    it 'renders audit content log' do
+      visit auditlogs_path
+      expect(page).to have_content(/JON, SNOW /)
+    end
+  end
+end

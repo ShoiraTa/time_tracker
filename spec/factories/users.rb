@@ -7,7 +7,7 @@ FactoryBot.define do
     password {'asdfasdf'}
     password_confirmation {'asdfasdf'}
     first_name { 'Jon' }
-    last_name {" Snow"}
+    last_name {"Snow"}
     phone_number {'995551113368'}
 
     trait :with_post do

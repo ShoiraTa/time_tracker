@@ -1,4 +1,5 @@
 class Auditlog < ApplicationRecord
+  enum status:[ :submited,:approved,  :rejected]
   belongs_to :user
   validates_presence_of :start_date, :status
 
