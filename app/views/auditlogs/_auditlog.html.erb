@@ -3,12 +3,15 @@
     <%= auditlog.id%>
   </td>
   <td>
-    <%= auditlog.start_date%>
-  </td>
-  <td>
     <%= auditlog.user.full_name %>
   </td>
   <td>
-    <%=  auditlog.status %>
+    <%= auditlog.start_date%>
+  </td>
+  <td>
+    <%= auditlog.end_date%>
+  </td>
+  <td>
+    <%= status_label auditlog.status %>
   </td>
 </tr>
