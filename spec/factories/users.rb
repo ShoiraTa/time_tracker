@@ -8,7 +8,8 @@ FactoryBot.define do
     password_confirmation {'asdfasdf'}
     first_name { 'Jon' }
     last_name {" Snow"}
-
+    phone_number {'995551113368'}
+    
     trait :with_post do
       after(:create) do |user|
         create(:non_admin_post, user: user)
@@ -23,6 +24,7 @@ FactoryBot.define do
     first_name { 'Admin' }
     last_name {"User"}
     type {'AdminUser'}
+    phone_number {'995551113368'}
 
     trait :with_post do
       after(:create) do |user|
