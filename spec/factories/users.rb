@@ -1,6 +1,6 @@
 FactoryBot.define do
   sequence :email do |n|
-    "person#{n}@example.com"
+    "person#{n+1000}@example.com"
   end
   factory :user do
     email
@@ -9,7 +9,7 @@ FactoryBot.define do
     first_name { 'Jon' }
     last_name {" Snow"}
     phone_number {'995551113368'}
-    
+
     trait :with_post do
       after(:create) do |user|
         create(:non_admin_post, user: user)
