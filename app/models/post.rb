@@ -9,7 +9,7 @@ class Post < ApplicationRecord
 
   private
   def update_audit_log
-    audit_log = Auditlog.where(user_id: self.user_id, start_date: (self.date - 7.days..self.date)).last
-    audit_log.confirmed!
+    auditlog = Auditlog.where(user_id: self.user_id, start_date: (self.date - 7.days..self.date)).last
+    auditlog && auditlog.confirmed!
   end
 end
