@@ -1,6 +1,6 @@
 module ApplicationHelper
   include Pagy::Frontend
-  
+
   def active?(path)
     'active' if current_page?(path)
   end
@@ -9,6 +9,9 @@ module ApplicationHelper
     status_span_generator status
   end
 
+  def admin_types 
+    ['AdminUser']
+  end
   private
   def status_span_generator status
     case status

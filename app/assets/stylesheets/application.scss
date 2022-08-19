@@ -15,8 +15,9 @@
 *= require gritter
  */
 //  @import "bootstrap";
+ @import "admin_homepage.css";
  @import 'gritter';
- @import 'post.scss';
+ @import 'post.css';
  @import 'bourbon';
 
  button {
