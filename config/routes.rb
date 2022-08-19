@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :auditlogs
+  resources :auditlogs do 
+    member do
+      get :confirm
+    end
+  end
   namespace :admin do
       resources :posts
       resources :users

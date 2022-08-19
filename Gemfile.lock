@@ -339,6 +339,7 @@ DEPENDENCIES
   byebug
   capybara
   database_cleaner
+  database_cleaner-active_record
   debug
   devise!
   dotenv-rails

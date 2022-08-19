@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'devise'
 require "pundit/rspec"
+require 'database_cleaner'
 
 include  Warden::Test::Helpers
 Warden.test_mode!
@@ -23,4 +24,19 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include FactoryBot::Syntax::Methods
+  # Database cleaner set up below
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end

@@ -15,6 +15,11 @@ FactoryBot.define do
         create(:non_admin_post, user: user)
       end
     end
+    trait :with_auditlog do
+      after(:create) do |user|
+        create(:auditlog, user: user)
+      end
+    end
   end
   
   factory :admin_user do
