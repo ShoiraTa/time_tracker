@@ -18,3 +18,12 @@
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
+
+.employee-blocks {
+	margin-top: 45px;
+	margin-bottom: 45px;
+}
+
+.pending-homepage a {
+	width: 100%;
+}
