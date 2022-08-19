@@ -2,13 +2,14 @@
 	<div class='pending-homepage row'>
 		<h2>Items Pending Your Approval</h2>
 		<hr>
-		
 		<%= render  'pending_approval',  pending_approvals: @pending_approvals  %>
 	</div>
 
-	<div class='pending-homepage'>
-		<div>
-			<p>asdf</p>
-		</div>
+	<div class='pending-homepage row'>
+  	<h2>Recent Audit logs</h2>
+		<hr>
+			<%= render  'recent_audit_item',  recent_audit_items: @recent_audit_items  %>
+    <hr>
+    <%= link_to 'View all auditlogs', auditlogs_path, class: 'btn btn-sm btn-primary' %>
 	</div>
 </div>
