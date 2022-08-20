@@ -12,10 +12,6 @@ RSpec.describe 'Auditlog features' do
       visit auditlogs_path
       expect(page.status_code).to eq(200)
     end
-    it 'renders audit content log' do
-      visit auditlogs_path
-      expect(page).to have_content(/JON, SNOW /)
-    end
     it 'non admin cannot access audilogs' do
       logout(:admin_user)
       login_as(user, :scope=> :user)
