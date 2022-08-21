@@ -33,4 +33,15 @@ RSpec.describe User, type: :model do
       expect(user).to_not be_valid
     end
   end
+
+  describe 'relationship between admins and employees' do 
+    it 'allows for admins to be assosiated with employees' do
+      employee1 = create(:user)
+      employee2 = create(:user)
+      admin = create(:admin_user)
+      Hand.create!(user_id: admin.id, hand_id: employee1.id)
+      Hand.create!(user_id: admin.id, hand_id: employee2.id)
+      expect(admin.hands.count).to eq 2
+    end
+  end
 end
