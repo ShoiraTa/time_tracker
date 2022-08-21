@@ -10,6 +10,8 @@ FactoryBot.define do
     last_name {"Snow"}
     phone_number {'995551113368'}
     type {'Employee'}
+    ssn {123456}
+    company {'abc'}
 
     trait :with_post do
       after(:create) do |user|
@@ -31,6 +33,8 @@ FactoryBot.define do
     last_name {"User"}
     type {'AdminUser'}
     phone_number {'995551113368'}
+    ssn {1234567}
+    company {'abc'}
 
     trait :with_post do
       after(:create) do |user|

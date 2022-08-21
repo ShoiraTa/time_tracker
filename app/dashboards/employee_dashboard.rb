@@ -17,6 +17,8 @@ class EmployeeDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     phone_number: Field::String,
+    ssn: Field::Number,
+    company: Field::String,
   }.freeze
   
   COLLECTION_ATTRIBUTES = %i[
@@ -26,9 +28,11 @@ class EmployeeDashboard < Administrate::BaseDashboard
     type
     phone_number
     first_name
+    ssn
   ].freeze
   SHOW_PAGE_ATTRIBUTES = %i[
-    id
+    ssn
+    company
     email
     password
     first_name
@@ -43,6 +47,8 @@ class EmployeeDashboard < Administrate::BaseDashboard
     updated_at
   ].freeze
   FORM_ATTRIBUTES = %i[
+    ssn
+    company
     email
     password
     first_name

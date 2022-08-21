@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let(:user){User.create(email:'email@gmail.com', password: '123456', password_confirmation: '123456', last_name: 'Last',first_name: 'Nina', phone_number: '995551113368')}
+  let(:user){create(:user)}
 
   describe 'create' do
     it 'can create user' do
@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
   end
   describe 'methods' do
     it 'full_name method' do 
-      expect(user.full_name).to eq('NINA, LAST')
+      expect(user.full_name).to eq("JON, SNOW")
     end
   end
   describe 'validation' do
@@ -30,6 +30,18 @@ RSpec.describe User, type: :model do
     end
     it 'requires phone attr to only contain 10 chars' do
       user.phone_number = '123456789'
+      expect(user).to_not be_valid
+    end
+    it 'requires ssn' do
+      user.ssn = nil
+      expect(user).to_not be_valid
+    end
+    it 'requires a company' do
+      user.company = nil
+      expect(user).to_not be_valid
+    end
+    it 'requires phone attr to only contain numbers' do
+      user.ssn = '1-2-3-4-5'
       expect(user).to_not be_valid
     end
   end
