@@ -28,6 +28,7 @@ gem 'bourbon'
 gem "pundit", "~> 2.2"
 gem 'twilio-ruby', '~> 5.70.1'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

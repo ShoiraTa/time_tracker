@@ -201,6 +201,7 @@ GEM
       digest
       net-protocol
       timeout
+    newrelic_rpm (8.10.0)
     nio4r (2.5.8)
     nokogiri (1.13.8-arm64-darwin)
       racc (~> 1.4)
@@ -353,6 +354,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  newrelic_rpm
   pagy (~> 5.10)
   pg
   puma (~> 5.0)
