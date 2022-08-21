@@ -4,7 +4,7 @@ class PagesController < ApplicationController
       @pending_approvals = Post.submitted
       @recent_audit_items = Auditlog.last(9)
     else
-      @pending_audit_confirmations = current_user.auditlogs.pending
+      @pending_audit_confirmations = current_user.auditlogs.pending.order('start_date desc')
     end
   end
 end

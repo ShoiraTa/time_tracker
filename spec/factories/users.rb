@@ -9,6 +9,7 @@ FactoryBot.define do
     first_name { 'Jon' }
     last_name {"Snow"}
     phone_number {'995551113368'}
+    type {'Employee'}
 
     trait :with_post do
       after(:create) do |user|

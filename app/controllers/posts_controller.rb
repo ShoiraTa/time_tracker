@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :approve]
   def index
-    @posts = Post.posts_by current_user
+    if current_user.type == 'Employee'
+      @posts = Post.posts_by current_user
+    else
+      @posts = Post.all
+    end
   end
   def new
     @post = Post.new

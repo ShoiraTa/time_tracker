@@ -1,26 +1,28 @@
 <% if current_user %>
   <nav class="navbar navbar-expand-lg bg-light mt-4">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Time Tracker</a>
+       <%= link_to 'Time Tracker', root_path,class: "nav-link #{active?(root_path)} navbar-brand"  %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <%= link_to 'Home', root_path,class: "nav-link #{active?(root_path)}"  %>
-          </li>
+
+
           <li class="nav-item">
             <%= link_to 'Time entries', posts_path, class: "nav-link #{active?(posts_path)}"  %>
           </li>
-          <% if policy(Auditlog).index? %>
+
+          <% if admin? %>
             <li class="nav-item">
               <%= link_to 'Audit logs', auditlogs_path, class: "nav-link #{active?(auditlogs_path)}" , id:'auditlogs_path' %>
             </li>
           <% end %>
-          <li class="nav-item">
-            <%= link_to 'New Entry', new_post_path, class: "nav-link #{active?(new_post_path)}" , id:'add_new_entry' %>
-          </li>
+          <% if employee? %>
+            <li class="nav-item">
+              <%= link_to 'New Entry', new_post_path, class: "nav-link #{active?(new_post_path)}" , id:'add_new_entry' %>
+            </li>
+          <% end %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Account
@@ -28,11 +30,12 @@
             <ul class="dropdown-menu">
               <%= link_to 'Edit details', root_path,class: "dropdown-item"  %>
               <li><hr class="dropdown-divider"></li>
-              <% if current_user.type == 'AdminUser' %>
+              <% if admin? %>
                 <%= link_to 'Admin dashboard', admin_root_path,class: "dropdown-item"  %>
               <% end %>
             </ul>
           </li>
+
         </ul>
 
         <%= button_to 'Logout', destroy_user_session_path,class: "nav-link", method: :delete  %>
